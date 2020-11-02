@@ -1,0 +1,18 @@
+{
+    "name": "luffyzhao/template-for-pdf",
+    "authors": [
+        {
+            "name": "Luffy Zhao",
+            "email": "luffyzhao@vip.126.com"
+        }
+    ],
+    "require": {
+        "ext-mbstring": "*",
+        "tecnickcom/tcpdf": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "TemplateForPDF\\": "src/"
+        }
+    }
+}
