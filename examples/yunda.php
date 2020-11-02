@@ -1,7 +1,7 @@
 <?php
 include_once __DIR__ . "/../vendor/autoload.php";
 
-$pdf = new \TemplateForPDF\Contracts\ExpressPdf(76, 130, __DIR__ . "/../template/yunda-76x130/yunda-76x130_00.png");
+$pdf = new \TemplateForPDF\Foundation\Express(76, 130, __DIR__ . "/../template/yunda-76x130/yunda-76x130_00.png");
 // time
 // 时间
 $pdf->SetFontSize(8);

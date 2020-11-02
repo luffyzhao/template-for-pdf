@@ -1,11 +1,11 @@
 <?php
 
-namespace TemplateForPDF\Contracts;
+namespace TemplateForPDF\Foundation;
 
 use Exception;
 use TCPDF;
 
-class ExpressPdf extends TCPDF
+class Express extends TCPDF
 {
     /**
      * @var float
