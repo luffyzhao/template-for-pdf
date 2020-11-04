@@ -1,6 +1,16 @@
 <?php
 include_once __DIR__ . "/../vendor/autoload.php";
 
+$yunDa = new \TemplateForPDF\Foundatin\Express\YunDa76x130();
+$yunDa->setCode("7700184651251")
+    ->setPackageCode("300 G220-09 000")
+    ->setPackageLand("上海分波包")
+    ->setTpStatus("西溪首席")
+    ->set2DBarcode("西溪首席西溪首席西溪首席西溪首席西溪首席")
+    ->save(__DIR__ . '/example_yunda.pdf');
+
+/*
+
 $pdf = new \TemplateForPDF\Foundation\Express(76, 130, __DIR__ . "/../template/yunda-76x130/yunda-76x130_00.png");
 // time
 // 时间
@@ -59,3 +69,4 @@ $style = array(
 $pdf->write2DBarcode("湖南省长沙市长沙县湖南省长沙市长沙县黄花镇黄花综合保税区通关大楼4楼4001室", 'QRCODE,L', 59, 108, 15, 15, $style);
 
 $pdf->Output(__DIR__ . '/example_yunda.pdf', 'F');
+*/

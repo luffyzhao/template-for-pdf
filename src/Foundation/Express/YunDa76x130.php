@@ -44,4 +44,91 @@ class YunDa76x130
         return $this;
     }
 
+    /**
+     * @param string $code
+     * @return YunDa76x130
+     */
+    public function setPackageCode(string $code)
+    {
+        $this->pdf->SetFontSize(26);
+        $this->pdf->Text(4, 11, $code);
+        return $this;
+    }
+
+    /**
+     * @param string $code
+     * @return YunDa76x130
+     */
+    public function setTpStatus(string $code)
+    {
+        $this->pdf->SetFont('stsongstdlight', 'B', 12);
+        $this->pdf->Text(4, 37.5, $code);
+        return $this;
+    }
+
+
+    /**
+     * @param string $code
+     * @return $this
+     */
+    public function setPackageLand(string $code)
+    {
+        $this->pdf->SetFont('stsongstdlight', 'B', 16);
+        $this->pdf->Text(1, 44, "集包地: " . $code);
+        return $this;
+    }
+
+    /**
+     * @param array $receiving
+     * @return $this
+     */
+    public function setReceiving(array $receiving){
+        // 收件人信息
+        $this->pdf->SetFont('stsongstdlight', 'B', 8);
+        $this->pdf->Text(11, 51, "{$receiving['name']}   {$receiving['mobile']}");
+        $this->pdf->SetFont('stsongstdlight', '', 7);
+        $this->pdf->Text(11, 54, "{$receiving['telphone']}");
+        $this->pdf->writeHTMLCell(47, 7, 11, 57, "<p>{$receiving['address']}</p>", 0, 1);
+        return $this;
+    }
+
+    /**
+     * @param array $buyer
+     * @return $this
+     */
+    public function setBuyer(array $buyer){
+        $this->pdf->SetFont('stsongstdlight', 'B', 8);
+        $this->pdf->Text(11, 67, "{$buyer['name']}   {$buyer['mobile']}");
+        $this->pdf->SetFont('stsongstdlight', '', 6);
+        $this->pdf->writeHTMLCell(47, 7, 11, 70, "<p>{$buyer['address']}</p>", 0, 1);
+        return $this;
+    }
+
+    /**
+     * @param $info
+     * @return $this
+     */
+    public function setOtherInfo($info){
+        $this->pdf->writeHTMLCell(70, 23, 1, 81, '<div>' .
+            $info .
+            '</div>', 0, 1);
+        return $this;
+    }
+
+    /**
+     * @param $text
+     * @return $this
+     */
+    public function set2DBarcode($text){
+        $style = ['border' => 2,'vpadding' => 'auto', 'hpadding' => 'auto','module_width' => 1,'module_height' => 1];
+        $this->pdf->write2DBarcode("{$text}", 'QRCODE,L', 59, 108, 15, 15, $style);
+        return $this;
+    }
+
+    /**
+     * @param $path
+     */
+    public function save($path){
+        $this->pdf->Output($path, 'F');
+    }
 }
